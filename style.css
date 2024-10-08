@@ -1,0 +1,253 @@
+.ubuntu-mono-regular {
+  font-family: "Ubuntu Mono", monospace;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.ubuntu-mono-bold {
+  font-family: "Ubuntu Mono", monospace;
+  font-weight: 700;
+  font-style: normal;
+}
+
+.ubuntu-mono-regular-italic {
+  font-family: "Ubuntu Mono", monospace;
+  font-weight: 400;
+  font-style: italic;
+}
+
+.ubuntu-mono-bold-italic {
+  font-family: "Ubuntu Mono", monospace;
+  font-weight: 700;
+  font-style: italic;
+}
+
+body {
+    background-color: black;
+    color: #f1f1f1;
+    font-family: "Ubuntu Mono", monospace;
+    font-weight: 400;
+    font-size: 12px;
+    z-index: -10;
+}
+
+a {
+    color: #f1f1f1;
+    cursor: pointer;
+    text-underline-offset: 0.3em;
+    text-decoration-color: #646464;
+    text-decoration-skip-ink: none;
+}
+
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: #fff;
+  padding: 10px;
+  box-sizing: border-box;
+  z-index: 10; /* Ensure header is above other content */
+}
+p {
+  line-height: 10%;
+}
+
+h4 {
+    color: #858585;
+    font-size: 1em;
+    font-weight: 400;
+    margin-right: 35%;
+    letter-spacing: 0.03em;
+    margin-block-end: 0%;
+    text-decoration: none;
+}
+.header {
+  text-decoration: none;
+  position: fixed;
+  z-index: 1;
+  margin-top: -1em;
+  margin-left: -1em;
+  padding-left: 1em;
+  margin-right: -1em;
+  padding-right: 1em;
+  padding-bottom: 1em;
+  padding-top: 1em;
+  background-color: black;
+  border-bottom: solid 1px #ffffff;
+  width: 100%;
+}
+.menu {
+  position: fixed;
+  width: 100%;
+  list-style-type: none;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: -2.3em;
+  padding-top: 1em;
+  margin-left: -5.2em;
+  z-index: 2;
+}
+.menu_item {
+  width: 50px;
+  padding: 5px;
+}
+.menubox {
+  text-decoration: none;
+}
+
+.footermenu {
+  width: 100%;
+  list-style-type: none;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: -2.3em;
+  padding-top: 1em;
+}
+.footermenu_item {
+  width: 100px;
+  padding: 5px;
+}
+.footermenubox {
+  text-decoration: none;
+}
+
+.cart {
+  position: fixed;
+  width: 100%;
+  display: flex;
+	align-items: flex-start; /*ここは任意の値でOK*/
+	justify-content: flex-end;
+  margin-top: -2em;
+  padding-top: 1em;
+  margin-left: -2em;
+  z-index: 3;
+  text-decoration: none;
+}
+.form-text{
+    font-size: 16px;
+    padding: 10.130px;
+    width: 191px;
+}
+#searchBtn {
+
+    padding: 10px 20px;
+    font-size: 12px;
+    font-family: "Ubuntu Mono", monospace;
+    cursor: pointer;
+    background-color: #000;
+    margin-top: -25px;
+    color: #f1f1f1;
+    border: none;
+    border-radius: 5px;
+    outline: none;
+    position: relative; /* To position the search container relative to the button */
+}
+#searchBtn::before {
+    content: '';
+    position: absolute;
+    top: -10px; /* Extend 10px above the button */
+    left: -10px; /* Extend 10px to the left of the button */
+    right: -10px; /* Extend 10px to the right of the button */
+    bottom: -10px; /* Extend 10px below the button */
+    z-index: -1; /* Place behind the button */
+}
+#searchContainer {
+    position: absolute;
+    top: 100%; /* Position it right below the button */
+    margin-top: -4px;
+    margin-left: 4.2em;
+    left: 0;
+    width: 100%;
+    height: 0; /* Start with height 0 to hide the search bar initially */
+    overflow: hidden;
+    background-color: #f1f1f1;
+    transition: height 0.1s ease-in-out; /* Smooth transition for height change */
+    border-bottom: solid 1px #ffffff;
+}
+
+#searchBar {
+    font-family: "Ubuntu Mono", monospace;
+    width: 100%;
+    padding: 15px;
+    border: none;
+    box-sizing: border-box;
+    font-size: 12px;
+    outline: none;
+    background-color: #000; /* Black background */
+    color: gray; /* White text color */
+}
+
+#searchContainer.active {
+    height: 40px; /* Height when the search bar is visible */
+}
+.image-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 60px; /* Space between images */
+    width: 90vw; /* 90% of viewport width */
+    height: 90vh; /* 90% of viewport height */
+    overflow: auto;
+}
+
+.image-grid img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain; /* Ensures images cover their area without distortion */
+}
+
+
+#cartButton {
+    padding: 10px 20px;
+    position: fixed;
+    font-size: 12px;
+    cursor: pointer;
+    z-index: 11;
+    top: -2px; /* 画面の上から10pxに配置 */
+    right: 20px; /* 画面の右から20pxに配置 */
+    background-color: #000;
+    font-family: "Ubuntu Mono", monospace;
+    color: #f1f1f1;
+    border: none;
+    outline: none;
+}
+
+#cartPopup {
+    position: fixed;
+    top: 34px;
+    right: 20px;
+    width: 100px;
+    padding: 80px 20px;
+    background-color: #000;
+    border: 1px solid white;
+    z-index: 11;
+}
+
+.hidden {
+    display: none;
+}
+
+#sortbtn  {
+  padding: 10px 20px;
+  position: fixed;
+  font-size: 12px;
+  cursor: pointer;
+  z-index: 11;
+  background-color: #000;
+  font-family: "Ubuntu Mono", monospace;
+  color: #f1f1f1;
+  border: none;
+  outline: none;
+}
+
+#sortPopup {
+  position: fixed;
+  top: 34px;
+  width: 100px;
+  padding: 80px 20px;
+  background-color: #000;
+  border: 1px solid white;
+  z-index: 11;
+}
