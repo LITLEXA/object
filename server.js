@@ -8,40 +8,43 @@ const PORT = process.envPORT || 2000;
 
 app.use(cors());
 app.use(bodyParser.json());
+// パスの確認用ログ
+console.log('Serving static files from:', path.join(__dirname, 'public'));
+
+// 静的ファイルの提供
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, 'public', 'index.html')); // index.htmlを返す
+  res.sendFile(path.join(__dirname, 'public', 'index.html')); // ルートでindex.htmlを提供
 });
+
 
 // チェックアウトセッションを作成するエンドポイント
 app.post('/create-checkout-session', async (req, res) => {
     try {
-        const { items } = req.body;
-
         const session = await stripe.checkout.sessions.create({
             payment_method_types: ['card'],
-            line_items: items.map(item => ({
+            line_items: req.body.items.map(item => ({
                 price_data: {
                     currency: 'jpy',
-                    product_data: {
-                        name: item.name,
-                    },
+                    product_data: { name: item.name },
                     unit_amount: item.price,
+                    images: [item.image],
                 },
                 quantity: item.quantity,
             })),
             mode: 'payment',
-            success_url: 'http://localhost:3000/success.html',
-            cancel_url: 'http://localhost:3000/cancel.html',
+            success_url: 'http://localhost:2000',
+            cancel_url: 'http://localhost:2000',
         });
 
         res.json({ id: session.id });
     } catch (error) {
-        console.error('接続ができませんでした:', error);
-        res.status(500).json({ error: error.message });
+        console.error('Error creating checkout session:', error);
+        res.status(500).json({ error: 'An error occurred' });
     }
 });
+
 
 // サーバーの起動
 app.listen(PORT, () => {
