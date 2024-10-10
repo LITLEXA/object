@@ -227,6 +227,24 @@ h4 {
 .hidden {
     display: none;
 }
+#checkout-button {
+    padding: 10px 20px;
+    position: fixed;
+    font-size: 12px;
+    cursor: pointer;
+    z-index: 11;
+    top: 50px; /* 画面の上から10pxに配置 */
+    right: 45px; /* 画面の右から20pxに配置 */
+    background-color: #000;
+    font-family: "Ubuntu Mono", monospace;
+    color: #f1f1f1;
+    border: none;
+    outline: none;
+    border: 1px solid white;
+}
+.checkout-hidden {
+  display:none
+}
 
 #sortBtn  {
   position: fixed;
